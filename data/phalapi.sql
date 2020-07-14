@@ -20,11 +20,12 @@ CREATE TABLE `phalapi_portal_admin` (
   `salt` varchar(64) NOT NULL DEFAULT '' COMMENT '盐值',
   `role` varchar(20) NOT NULL DEFAULT 'admin' COMMENT '管理员角色，admin普通管理员，super超级管理员',
   `state` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，1可用0禁止',
-  `created_at` datetime DEFAULT NULL COMMENT '创建时间',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `phalapi_portal_admin`(`username`, `password`) VALUES ('xuweixin', '45917634c7cac19dcadcc247665f65a8'), ('admin', '45917634c7cac19dcadcc247665f65a8');
 
 CREATE TABLE `phalapi_portal_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
